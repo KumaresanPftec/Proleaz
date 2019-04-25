@@ -21,7 +21,7 @@ public class VerifyDeletePortfolio extends Portfolio {
 	pf.searchPortfolioName("//*[@id=\'tblSite_filter\']/label/input", portName);
 	pf.checkPortfolioDeleted("No matching records found", "//*[@id=\'tblSite\']/tbody/tr/td");
 	
-	
+	//gghjg
 }
 
 }
