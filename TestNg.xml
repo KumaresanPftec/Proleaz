@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DefaultSuit" thread-count="3" parallel="methods">
+	<test name="ProleazFirstSetOfTestCases">
+		<classes>
+			<class name="Proleaz.project.VerifyInvalidLogin" />
+			<class name="Proleaz.project.VerifyLogin" />
+			<class name="Proleaz.project.VerifyPortfolio" />
+			<class name="Proleaz.project.VerifyDeletePortfolio"></class>
+		</classes>
+	</test>
+</suite>
