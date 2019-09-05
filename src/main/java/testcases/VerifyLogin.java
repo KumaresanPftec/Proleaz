@@ -1,4 +1,4 @@
-package Proleaz.project;
+package testcases;
 import wrappers.CommonWrappers;
 
 import org.testng.annotations.AfterMethod;
@@ -15,7 +15,7 @@ public class VerifyLogin extends LoginPage{
 	
 	@BeforeMethod
 	public void beforeMethod(){
-		
+		startTest("VerifyValidLogin", "Test Result");
 		lp.launchBrowser();
 	}
 
@@ -42,7 +42,12 @@ public class VerifyLogin extends LoginPage{
 		}
 
 
+	@AfterMethod
 	
+	public void endTest1() {
+		
+		endTest();
+	}
 	
 	
 	

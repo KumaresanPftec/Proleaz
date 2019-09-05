@@ -1,12 +1,22 @@
-package Proleaz.project;
+package testcases;
+import java.io.IOException;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pages.Portfolio;
 public class VerifyEditPortfolio extends Portfolio{
 	
-	
+	@BeforeMethod
+	public void beforeMethod(){
+		startTest("VerifyEditPorfolio", "Portfololio Edit");
+		
+	}
 	@Test(dataProvider="portfolioDetails")
-	public void editPortfolioSave(String portName, String portAbbr) throws InterruptedException {
+	
+	
+	public void editPortfolioSave(String portName, String portAbbr) throws InterruptedException, NullPointerException, IOException {
 		
 		Portfolio pf = new Portfolio();
 		pf.launchBrowser();
@@ -33,6 +43,12 @@ public class VerifyEditPortfolio extends Portfolio{
 	
 	}
 	
+@AfterMethod
+	
+	public void endTest1() {
+		
+		endTest();
+	}
 	
 
 }

@@ -1,4 +1,4 @@
-package Proleaz.project;
+package testcases;
 
 /**
  * Hello world!

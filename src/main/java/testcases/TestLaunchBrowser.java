@@ -1,5 +1,5 @@
 
-package Proleaz.project;
+package testcases;
  
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
