@@ -13,12 +13,12 @@ public class VerifyInvalidLogin extends LoginPage {
 		startTest("VerifyValidLogin", "Test Result");
 		lp.launchBrowser();
 	}
-	@Test(dataProvider="invalidLoginDetails")
+	@Test(dataProvider="getData")
 	
 	public void invalidLogin(String userName ,String passWord) {
 		try {
-			
-			lp.userName("txtusr", userName);
+			System.out.println(userName+""+passWord);
+			//lp.userName("txtusr", userName);
 			lp.passWord("txtpswd", passWord);
 			lp.loginSubmit("btnlogin");
 			lp.checkLogin("http://10.10.13.211/ProleazTesting/Login/Index");

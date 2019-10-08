@@ -14,10 +14,15 @@ public class Portfolio extends CommonWrappers {
 	
 	
 	
-	public Portfolio clickApplicationSetting(String appSettingXpath) {
+	public Portfolio clickApplicationSetting(String appSettingXpath) throws NullPointerException, IOException {
 		
-		clickByXPath(appSettingXpath);
-		Reporter.log("Application Setting is clicked");
+		
+		
+		
+		extentLog(clickByXPath(appSettingXpath), "App Setting is clicked", "App Setting is not clicked");
+		
+		
+		/*Reporter.log("Application Setting is clicked");
 		try {
 			getScreenshot();
 		} 
@@ -25,7 +30,7 @@ public class Portfolio extends CommonWrappers {
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		//"//*[@id=\'appMenu\']/a/b"
 		return new Portfolio();
 	}
@@ -38,10 +43,13 @@ public class Portfolio extends CommonWrappers {
 		return new Portfolio();
 	}
 
-	public Portfolio clickPortfolio(String portId) throws InterruptedException {
+	public Portfolio clickPortfolio(String portId) throws InterruptedException, NullPointerException, IOException {
 		
-		clickById(portId);
-		Reporter.log("Portfolio is clicked");
+	
+		
+		extentLog(	clickById(portId), "Portfolio is clicked", "Portfolio is not clicked");
+		
+		/*Reporter.log("Portfolio is clicked");
 		try {
 			getScreenshot();
 		} 
@@ -49,15 +57,19 @@ public class Portfolio extends CommonWrappers {
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		return new Portfolio();
 	}
 	
 	
-	public Portfolio enterPortfolioName(String portId , String portfolioName) throws InterruptedException {
+	public Portfolio enterPortfolioName(String portId , String portfolioName) throws InterruptedException, NullPointerException, IOException {
 		
-		enterTextById(portId, portfolioName);
-		Reporter.log("Portfolio Name is entered = "+portfolioName+"");
+		
+		
+		extentLog(	enterTextById(portId, portfolioName), "Portfolio name  is clicked", "Portfolio name is not clicked");
+	
+	
+	/*	Reporter.log("Portfolio Name is entered = "+portfolioName+"");
 		try {
 			getScreenshot();
 		} 
@@ -65,13 +77,16 @@ public class Portfolio extends CommonWrappers {
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		return new Portfolio();
 	}
 
-	public Portfolio enterPortAbbr(String portAbbrId, String portAbbrName) throws InterruptedException {
-		enterTextById(portAbbrId, portAbbrName);
-		Reporter.log("Portfolio abbr is entered= "+portAbbrName+"");
+	public Portfolio enterPortAbbr(String portAbbrId, String portAbbrName) throws InterruptedException, NullPointerException, IOException {
+		
+		
+		extentLog(	enterTextById(portAbbrId, portAbbrName), "PortfolioAbbr nameis clicked", "PortfolioAbbr name is not clicked");
+		
+	/*	Reporter.log("Portfolio abbr is entered= "+portAbbrName+"");
 		try {
 			getScreenshot();
 		} 
@@ -79,14 +94,17 @@ public class Portfolio extends CommonWrappers {
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		return new Portfolio();
 	}
 	
-	public Portfolio clickAddUpdate(String addUpdtbtnId) throws InterruptedException {
+	public Portfolio clickAddUpdate(String addUpdtbtnId) throws InterruptedException, NullPointerException, IOException {
 		
-		clickById(addUpdtbtnId);
-		Reporter.log("Portfolio, Portfolio abbr are saved");
+		
+		
+		extentLog(	clickById(addUpdtbtnId), "Add/Update is clicked", "Add/Update is not clicked");
+		
+	/*	Reporter.log("Portfolio, Portfolio abbr are saved");
 		try {
 			getScreenshot();
 		} 
@@ -94,15 +112,18 @@ public class Portfolio extends CommonWrappers {
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		return new Portfolio();
 		
 	}
 	
-	public Portfolio searchPortfolioName(String searchPath , String portfolioName) {
+	public Portfolio searchPortfolioName(String searchPath , String portfolioName) throws NullPointerException, IOException {
 		
-		enterByXPath(searchPath, portfolioName);
-		Reporter.log("Portfolio name is searched ");
+		
+		
+		extentLog(	enterByXPath(searchPath, portfolioName), "Portfolio is searched", "Portfolio is not searched");
+	
+		/*	Reporter.log("Portfolio name is searched ");
 		try {
 			getScreenshot();
 		} 
@@ -110,55 +131,55 @@ public class Portfolio extends CommonWrappers {
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		return new Portfolio();
 	}
 	
 	
 	
 	
-	public Portfolio checkPortfoliloSaved(String enteredPortfolio, String xPath) {
+	public Portfolio checkPortfoliloSaved(String enteredPortfolio, String xPath) throws NullPointerException, IOException {
 		
 		String savedPortfolio=getTextByXpath(xPath);
 		
 		if(savedPortfolio.equals(enteredPortfolio)) {
-			Reporter.log("Portfolio name is saved ");
+			extentLog(	true, "Portfolio is saved", "Portfolio is not saved");
 		}
 		else {
-			Reporter.log("Portfolio name is not saved ");
+			extentLog(	false, "Portfolio is saved", "Portfolio is not saved");
 		}
-		try {
+		/*try {
 			getScreenshot();
 		} 
 		
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		Assert.assertEquals(savedPortfolio, enteredPortfolio);
 		
 		return new Portfolio();
 	}
 	
-	public Portfolio checkPortfolioAbrrSaved(String enteredPortAbbrName, String xPath) {
+	public Portfolio checkPortfolioAbrrSaved(String enteredPortAbbrName, String xPath) throws NullPointerException, IOException {
 		
 		String savedPortAbbrName = getTextByXpath(xPath);
 		
 		if(savedPortAbbrName.equals(enteredPortAbbrName)) {
 			
-			Reporter.log("PortfolioAbbr is saved ");
+			extentLog(	true, "PortfolioAbbr is saved", "PortfolioAbbr is not saved");
 		}
 		else {
-			Reporter.log("PortfolioAbbr is not saved ");
+			extentLog(	false, "PortfolioAbbr is saved", "PortfolioAbbr is not saved");
 		}
-		try {
+	/*	try {
 			getScreenshot();
 		} 
 		
 		catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 		Assert.assertEquals(savedPortAbbrName, enteredPortAbbrName);
 		
 		
@@ -181,29 +202,29 @@ public class Portfolio extends CommonWrappers {
     return new Object[][] 
     	{
             
-            { "TestPortfolio1", "TESTP1"},
+            { "TestPortfolio", "TESTP"},
            
         };
 }
 	
-public Portfolio checkPortfolioDeleted(String expectedMessage, String Xpath) {
+public Portfolio checkPortfolioDeleted(String expectedMessage, String Xpath) throws NullPointerException, IOException {
 	
 	String actaulMessage = getTextByXpath(Xpath);
 	if(actaulMessage.equals(expectedMessage)) {
 		
-		Reporter.log("Portfolio info deleted ");
+		extentLog(	true, "Portfolio is deleted", "PortfolioAbbr is not deleted");
 	}
 	else {
-		Reporter.log("Portfolio info is not deleted ");
+		extentLog(	false, "Portfolio is  deleted", "Portfolio is not deleted");
 	}
-	try {
+	/*try {
 		getScreenshot();
 	} 
 	
 	catch (IOException e) {
 		
 		e.printStackTrace();
-	}
+	}*/
 	Assert.assertEquals(actaulMessage, expectedMessage);
 	
 	
@@ -216,11 +237,11 @@ public Portfolio checkPortfolioDeleted(String expectedMessage, String Xpath) {
 }
 	
 
-public Portfolio clickDeletePortfolio(String xPath) {
+public Portfolio clickDeletePortfolio(String xPath) throws NullPointerException, IOException {
 	
 	
-	clickByXPath(xPath);
-	Reporter.log("Confirmation alert is appeared ");
+	
+	extentLog(	clickByXPath(xPath), "confirmation alert is appeared", "confirmation alert is not appeared");
 	try {
 		getScreenshot();
 	} 
@@ -233,14 +254,14 @@ public Portfolio clickDeletePortfolio(String xPath) {
 	return new Portfolio();
 }
 	
-public Portfolio confirmDletePortAlert(String xPath) {
+public Portfolio confirmDletePortAlert(String xPath) throws NullPointerException, IOException {
 	
 	
-	clickByXPath(xPath);
-	Reporter.log("Alert is confirmed ");
+	
+	extentLog(	clickByXPath(xPath), "Alert is confirmed", "Alert is not confirmed");
 
 	
-	try {
+/*	try {
 		getScreenshot();
 	} 
 	
@@ -248,66 +269,66 @@ public Portfolio confirmDletePortAlert(String xPath) {
 		
 		e.printStackTrace();
 	}
-	
+	*/
 	return new Portfolio();
 }
 
-public Portfolio clickEdit(String id) throws InterruptedException {
+public Portfolio clickEdit(String id) throws InterruptedException, NullPointerException, IOException {
 	
-	clickById(id);
-	Reporter.log("Edit is clicked ");
 	
-	try {
+	extentLog(	clickById(id), "Alert is confirmed", "Alert is not confirmed");
+	
+/*	try {
 		getScreenshot();
 	} 
 	
 	catch (IOException e) {
 		
 		e.printStackTrace();
-	}
+	}*/
 	return new Portfolio();
 	
 }
-public Portfolio checkSavedPortfolioDisplayedInEdit(String enteredPortfolio, String id){
+public Portfolio checkSavedPortfolioDisplayedInEdit(String enteredPortfolio, String id) throws NullPointerException, IOException{
 	
 	String savedPortfolio=getTextValueByid(id);
 	
 	if(savedPortfolio.equals(enteredPortfolio)) {
-		Reporter.log("Portfolio name is Displayed ");
+		extentLog(	true, "Portfolio name is dispalyed", "Portfolio name is not displayed");
 	}
 	else {
-		Reporter.log("Portfolio name is not Displayed ");
+		extentLog(	false, "Portfolio name is dispalyed", "Portfolio name is not displayed");
 	}
-	try {
+/*	try {
 		getScreenshot();
 	} 
 	
 	catch (IOException e) {
 		
 		e.printStackTrace();
-	}
+	}*/
 	Assert.assertEquals(savedPortfolio, enteredPortfolio);
 	
 	return new Portfolio();
 }
-public Portfolio checkSavedPortfolioAbbrDisplayedInEdit(String enteredPortAbbrName, String id){
+public Portfolio checkSavedPortfolioAbbrDisplayedInEdit(String enteredPortAbbrName, String id) throws NullPointerException, IOException{
 	
 	String savedPortAbbrName=getTextValueByid(id);
 	
 	if(savedPortAbbrName.equals(enteredPortAbbrName)) {
-		Reporter.log("PortfolioAbbr name is Displayed ");
+		extentLog(	true, "PortfolioAbbr name is dispalyed", "PortfolioAbbr name is not displayed");
 	}
 	else {
-		Reporter.log("PortfolioAbbr name is not Displayed ");
+		extentLog(	false, "PortfolioAbbr name is dispalyed", "PortfolioAbbr name is not displayed");
 	}
-	try {
+/*	try {
 		getScreenshot();
 	} 
 	
 	catch (IOException e) {
 		
 		e.printStackTrace();
-	}
+	}*/
 	Assert.assertEquals(savedPortAbbrName, enteredPortAbbrName);
 	
 	return new Portfolio();

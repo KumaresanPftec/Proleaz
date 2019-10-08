@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" guice-stage="DEVELOPMENT" name="Failed suite [DefaultSuit]" parallel="methods">
+  <test thread-count="4" name="ProleazFirstSetOfTestCases(failed)" parallel="methods">
+    <classes>
+      <class name="testcases.VerifyLogin">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="validLogin" invocation-numbers="0"/>
+          <include name="endTest1"/>
+        </methods>
+      </class> <!-- testcases.VerifyLogin -->
+    </classes>
+  </test> <!-- ProleazFirstSetOfTestCases(failed) -->
+</suite> <!-- Failed suite [DefaultSuit] -->

@@ -15,18 +15,7 @@ public class Test {
 			
 		}
 		
-		/*
-		 * int n=564, sum=0, r, temp
-		 *  temp=n;    
-		  while(n>0){    
-		   r=n%10;  //getting remainder  
-		   sum=(sum*10)+r;    
-		   n=n/10; 
-		   if(temp==sum)    
-   System.out.println("s ");    
-  else    
-   System.out.println("n"); 
-		     */ 
+	
 		  }
 
 	}

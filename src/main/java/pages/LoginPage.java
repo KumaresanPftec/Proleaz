@@ -12,18 +12,29 @@ import org.testng.annotations.DataProvider;
 public class LoginPage extends CommonWrappers {
 		
 	
-	public LoginPage userName(String userNameId, String userName) throws InterruptedException   {
+	public boolean result;
+	
+	public LoginPage userName(String userName) throws InterruptedException, IOException   {
 		
 	
-		enterTextById(userNameId, userName);
-		Reporter.log("UserName "+userName+ " is entered " );
+		//result = enterTextById(userNameId, userName);
+		extentLog(enterTextById(objRep("Login.id"), userName), "UserName is entered successfully", "User name is not entered");
+		
+		
+		
+		
+	/*	Reporter.log("UserName "+userName+ " is entered " );
+	
+		
+		
+		
 		try {
 			getScreenshot();
 		} catch (IOException e) {
 			
 			e.printStackTrace();
 		}
-		
+		*/
 	
 		
 		
@@ -31,10 +42,14 @@ public class LoginPage extends CommonWrappers {
 		
 	}
 	
-	public LoginPage passWord(String passWordId, String passWord) throws InterruptedException  {
+	public LoginPage passWord(String passWordId, String passWord ) throws InterruptedException, NullPointerException, IOException  {
 		
-		enterTextById(passWordId, passWord);
-		Reporter.log("Password is entered "+passWord);
+		result = enterTextById(passWordId, passWord);
+		
+		
+		extentLog(result, "Password is entered successfully", "Password is not entered");
+		
+		/*Reporter.log("Password is entered "+passWord);
 		try {
 			getScreenshot();
 		} 
@@ -43,17 +58,20 @@ public class LoginPage extends CommonWrappers {
 			
 			e.printStackTrace();
 		}
-		
+		*/
 		
 		
 		return new LoginPage();
 	}
 
 	
-	public LoginPage loginSubmit(String id) throws InterruptedException {
+	public LoginPage loginSubmit(String id) throws InterruptedException, NullPointerException, IOException {
 		
-		clickById(id);
-		Reporter.log("LoginButton is clicked");
+		result =clickById(id);
+		
+		extentLog(result, "Login button is clicked", "Login Button is not clicked");
+		
+		//Reporter.log("LoginButton is clicked");
 		
 		
 		
@@ -63,8 +81,9 @@ public class LoginPage extends CommonWrappers {
 	
 	public LoginPage checkLogin(String passedUrl) {
 		
-		String currentURL=getUrl();
-		Reporter.log("Page Redirected to "+currentURL);
+		String currentURL;
+		currentURL=getUrl();
+	/*	Reporter.log("Page Redirected to "+currentURL);
 		
 		try {
 			getScreenshot();
@@ -74,24 +93,34 @@ public class LoginPage extends CommonWrappers {
 			
 			e.printStackTrace();
 		}
+		*/
+		//extentLog(, "Login button is clicked", "Login Button is not clicked");
+		
+		
+		
+		 
 		
 		Assert.assertEquals(passedUrl, currentURL);
 		
-		
+		 
 		
 		return new LoginPage();
 		
 	}
 	
+	@DataProvider(name="getData")
+	public Object[][] getLogin() throws IOException{
+		
+		Object[][] excelData = readExcelData("./DataSheets/TestSheet.xlsx");
+		
+		
+		return excelData;
+		
+		
+	}
 	
-	@DataProvider(name="validLoginDetails")
-    public Object[][] getValidLogins(){
-    return new Object[][] 
-    	{
-            { "mk", "12345" },
-           
-        };
-}
+	
+
 	
 	@DataProvider(name="invalidLoginDetails")
     public Object[][] getValidInLogins(){
@@ -107,6 +136,15 @@ public class LoginPage extends CommonWrappers {
             
             
             
+           
+        };
+}
+	
+	@DataProvider(name="validLoginDetails")
+    public Object[][] getValidLogins(){
+    return new Object[][] 
+    	{
+            { "mk", "12345" }
            
         };
 }

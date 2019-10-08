@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Proleaz.project.VerifyPortfolio">
+      <class name="testcases.TestObjecRep">
         <methods>
-          <include name="verifyPortfolioIsSaved" invocation-numbers="0"/>
+          <include name="objRep"/>
         </methods>
-      </class> <!-- Proleaz.project.VerifyPortfolio -->
+      </class> <!-- testcases.TestObjecRep -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

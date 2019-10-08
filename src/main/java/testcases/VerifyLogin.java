@@ -27,7 +27,7 @@ public class VerifyLogin extends LoginPage{
 			try {
 				
 				
-				lp.userName("txtusr", userName);
+				lp.userName(userName);
 				lp.passWord("txtpswd", passWord);
 				lp.loginSubmit("btnlogin");
 				lp.driverWait();
