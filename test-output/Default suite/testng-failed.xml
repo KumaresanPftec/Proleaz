@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.TestObjecRep">
+      <class name="wrappers.RestGet">
         <methods>
-          <include name="objRep"/>
+          <include name="getDetails"/>
         </methods>
-      </class> <!-- testcases.TestObjecRep -->
+      </class> <!-- wrappers.RestGet -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
